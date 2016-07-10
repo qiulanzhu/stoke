@@ -5,7 +5,9 @@
   "private": true,
   "dependencies": {
     "express": "4.x",
+    "iconv-lite": "^0.4.13",
     "stack-trace": "^0.0.9",
-    "superagent": "^2.0.0"
+    "superagent": "^2.0.0",
+    "underscore": "^1.8.3"
   }
 }
