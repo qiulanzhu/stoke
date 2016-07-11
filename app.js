@@ -1,11 +1,11 @@
 global.logger = require('./logService');
 var  http = require('http');
 var express = require('express');
-var superAgent = require('superagent');
 var app = express();
 var homePage = require('./routes/homePage');
 var iconv = require('iconv-lite');
 var processData = require('./module/processData');
+var nodeEmail = require('./module/email');
 
 var stockId = 'sh600039,' +
     'sz000652,' +
@@ -20,10 +20,10 @@ var stockId = 'sh600039,' +
     'sz002344,' +
     'sh601633';
 var url = 'http://hq.sinajs.cn/list=' + stockId;
-
 http.get(url, function(res) {
     var data = '';
     res.on('data', function(chunk){
+        count++;
         data += iconv.decode(chunk, 'GBK');
     });
     res.on('end', function(){
