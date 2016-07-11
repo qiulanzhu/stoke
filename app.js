@@ -23,7 +23,6 @@ var url = 'http://hq.sinajs.cn/list=' + stockId;
 http.get(url, function(res) {
     var data = '';
     res.on('data', function(chunk){
-        count++;
         data += iconv.decode(chunk, 'GBK');
     });
     res.on('end', function(){
